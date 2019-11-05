@@ -4,9 +4,24 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
-
-def sin_x_exp_negx_squared(x_input):
-    return np.sin(x_input)*np.exp(-x_input**2)
     
-datasize_n = 12
-import matplotlib
+x_vals = [-1 , -.6, -.2, .2, .6, 1]
+y_vals = [.038461 , .1, .5, .5, .1, .038461]
+
+slope = (y_vals[1]-y_vals[0])/(x_vals[1]-x_vals[0])
+
+#between x_vals[0] and x_vals[1]
+
+print(y_vals[1])
+
+def linear_output_one(x_input):
+    y_int = y_vals[0]
+    return slope*x_input + y_int - slope*x_vals[0]
+
+x_vals_sect_one = np.arange(x_vals[0], x_vals[1], .01)
+y_vals_sect_one = linear_output_one(x_vals_sect_one)
+
+plt.plot(x_vals_sect_one, y_vals_sect_one, 'bo')
+plt.plot(x_vals, y_vals, 'ro')
+
+plt.show()
